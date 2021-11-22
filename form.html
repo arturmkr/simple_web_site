@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<style>
+.box {
+  float: left;
+  background-color: grey;
+  color: #ffffff;
+  width: 100px;
+  line-height: 100px;
+  text-align: center;
+  margin: 2px;
+}
+
+.footer {
+  float: left;
+  background-color: grey;
+  color: #ffffff;
+  width: 200px;
+  text-align: center;
+  margin: 2px;
+}
+
+.show {
+  display: block;
+}
+
+.box {
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+</style>
+<body>
+<div id="myBtnContainer">
+  <a class="btn" href="products.html">Products</a>
+  <a class="btn" href="about.html">About</a>
+  <a class="btn" href="delivery.html">Delivery</a>
+  <a class="btn active" href="form.html">Form</a>
+  <a class="btn" href="info.html">Info</a>
+  <a class="btn" href="table.html">Table</a>
+  <a class="btn" href="greeting.html">Greeting</a>
+</div>
+<br><br>
+
+
+<form>
+  <p>Select your transport:</p>
+  <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" checked>
+  <label for="vehicle1"> I have a bike</label><br>
+  <input type="checkbox" id="vehicle2" name="vehicle2" value="Car" disabled>
+  <label for="vehicle2"> I have a car</label><br>
+  <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+  <label for="vehicle3"> I have a boat</label>
+  <br>
+  <p>Select your language:</p>
+  <input type="radio" id="html" name="fav_language" value="HTML">
+  <label for="html">HTML</label><br>
+  <input type="radio" id="css" name="fav_language" value="CSS" checked>
+  <label for="css">CSS</label><br>
+  <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+  <label for="javascript">JavaScript</label><br><br>
+  <input type="submit" value="Submit">
+</form>
+
+
+<div class="footer">
+  <div>
+    <img src="ios.png">
+    <a href="https://www.apple.com/">iOS</a>
+  </div>
+  <div>
+    <img src="android.png">
+    <a href="https://www.google.com/">Android</a>
+  </div>
+</div>
+
+
+
+<script>
+</script>
+</body>
+</html>

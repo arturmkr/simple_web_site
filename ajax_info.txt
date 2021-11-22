@@ -1,0 +1,3 @@
+<h1>Sydney</h1>
+<p>Sydney, city, capital of the state of New South Wales, Australia.</p>
+<p>Current time 01:23</p>

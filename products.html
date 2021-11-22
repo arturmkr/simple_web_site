@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<style>
+.box {
+  float: left;
+  background-color: grey;
+  color: #ffffff;
+  width: 100px;
+  line-height: 100px;
+  text-align: center;
+  margin: 2px;
+}
+.footer {
+  float: bottom;
+  background-color: grey;
+  color: #ffffff;
+  width: 200px;
+  text-align: center;
+  margin: 2px;
+}
+
+.suggestion {
+  float: bottom;
+  background-color: #FBFFE1;
+  color: #ffffff;
+  width: 200px;
+  text-align: center;
+  margin: 2px;
+}
+
+.show {
+  display: block;
+}
+
+.box {
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+</style>
+<script type="text/javascript">
+function filterSelection(match) {
+	let count = 0;
+	document.querySelectorAll('.box').forEach(item => {
+		let name = item.querySelector('.boxLabel').innerHTML;
+		if(match === '') {
+			item.querySelector('input[type=checkbox]').checked = false;
+			return;
+		}
+		
+		if (name.toUpperCase().indexOf(match.toUpperCase()) >= 0) {
+			item.querySelector('input[type=checkbox]').checked = true;
+			count++;
+		} else {
+			item.querySelector('input[type=checkbox]').checked = false;
+		}
+	});
+	document.querySelector('.selectedValue span').innerHTML = count;
+}
+</script>
+<body>
+<div id="myBtnContainer">
+  <a class="btn active" href="products.html">Products</a>
+  <a class="btn" href="about.html">About</a>
+  <a class="btn" href="delivery.html">Delivery</a>
+  <a class="btn" href="form.html">Form</a>
+  <a class="btn" href="info.html">Info</a>
+  <a class="btn" href="table.html">Table</a>
+  <a class="btn" href="greeting.html">Greeting</a>
+</div>
+<br><br>
+
+
+<div id="myBtnContainer">
+  <button onclick="filterSelection('none')">Reset selection</button>
+  <button onclick="filterSelection('uhd')">Select UHD</button>
+  <span class="selectedLabel">Selected: </span><span class="selectedValue"><span>0</span>
+</div>
+
+<div class="box">
+  <div class="boxImage">
+  	<img src="https://www.lg.com/ru/images/televisions/md06022016/gallery/medium01.jpg" height="50px" width="50px" />
+  </div>	
+  <div class="boxCheckbox">
+    <input type="checkbox"></input>  
+  </div>
+  <div class="boxLabel">
+    LG 1  
+  </div>
+</div>
+<div class="box">
+	  <div class="boxImage">
+  	<img src="https://www.lg.com/ru/images/televisions/md06022016/gallery/medium01.jpg" height="50px" width="50px" />
+  </div>	
+  <div class="boxCheckbox">
+    <input type="checkbox"></input>  
+  </div>
+  <div class="boxLabel">
+    LG 2  
+  </div>
+</div>
+<div class="box">
+	  <div class="boxImage">
+  	<img src="https://www.lg.com/ru/images/televisions/md06022016/gallery/medium01.jpg" height="50px" width="50px" />
+  </div>	
+  <div class="boxCheckbox">
+    <input type="checkbox"></input>  
+  </div>
+  <div class="boxLabel">
+    LG 3 UHD  
+  </div>
+</div>
+<div class="box">
+	  <div class="boxImage">
+  	<img src="https://www.lg.com/ru/images/televisions/md06022016/gallery/medium01.jpg" height="50px" width="50px" />
+  </div>	
+  <div class="boxCheckbox">
+    <input type="checkbox"></input>  
+  </div>
+  <div class="boxLabel">
+    LG 4  
+  </div>
+</div>
+<div class="box">
+	  <div class="boxImage">
+  	<img src="https://www.lg.com/ru/images/televisions/md06022016/gallery/medium01.jpg" height="50px" width="50px" />
+  </div>	
+  <div class="boxCheckbox">
+    <input type="checkbox"></input>  
+  </div>
+  <div class="boxLabel">
+    LG 5 UHD  
+  </div>
+</div>
+<div class="box">
+	  <div class="boxImage">
+  	<img src="https://www.lg.com/ru/images/televisions/md06022016/gallery/medium01.jpg" height="50px" width="50px" />
+  </div>	
+  <div class="boxCheckbox">
+    <input type="checkbox"></input>  
+  </div>
+  <div class="boxLabel">
+    LG 6  
+  </div>
+</div>
+<div class="box">
+	  <div class="boxImage">
+  	<img src="https://www.lg.com/ru/images/televisions/md06022016/gallery/medium01.jpg" height="50px" width="50px" />
+  </div>	
+  <div class="boxCheckbox">
+    <input type="checkbox"></input>  
+  </div>
+  <div class="boxLabel">
+    LG 7  
+  </div>
+</div>
+<div class="box">
+	  <div class="boxImage">
+  	<img src="https://www.lg.com/ru/images/televisions/md06022016/gallery/medium01.jpg" height="50px" width="50px" />
+  </div>	
+  <div class="boxCheckbox">
+    <input type="checkbox"></input>  
+  </div>
+  <div class="boxLabel">
+    LG 8  
+  </div>
+</div>
+
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+
+<div class="footer">
+  <div>
+    <img src="ios.png">
+    <a href="https://www.apple.com/">iOS</a>
+  </div>
+  <div>
+    <img src="android.png">
+    <a href="https://www.google.com/">Android</a>
+  </div>
+</div>
+
+  <div class="suggestion">
+    <a href="https://bit.ly/2NhHZwe">Best products</a>
+    <br>
+    <a href="https://bit.ly/37O2ytt">New products</a>
+  </div>
+  
+  
+
+</div>
+<script>
+</script>
+</body>
+</html>

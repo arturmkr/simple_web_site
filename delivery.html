@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<style>
+.box {
+  float: left;
+  background-color: grey;
+  color: #ffffff;
+  width: 100px;
+  line-height: 100px;
+  text-align: center;
+  margin: 2px;
+}
+
+.suggestion {
+  float: bottom;
+  background-color: #FBFFE1;
+  color: #ffffff;
+  width: 200px;
+  text-align: center;
+  margin: 2px;
+}
+
+.show {
+  display: block;
+}
+
+.box {
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+</style>
+<body>
+<div id="myBtnContainer">
+    <a class="btn" href="products.html">Products</a>
+    <a class="btn" href="about.html">About</a>
+    <a class="btn active" href="delivery.html">Delivery</a>
+    <a class="btn" href="form.html">Form</a>
+    <a class="btn" href="info.html">Info</a>
+    <a class="btn" href="table.html">Table</a>
+    <a class="btn" href="greeting.html">Greeting</a>
+</div>
+<br><br>
+<h1>Transport:</h1>
+
+<img id="vehicle-img" src="plane.png" />
+<br><br><br>
+<select id="picDD">
+    <option value="1" selected>plane</option>
+    <option value="2">car</option>
+</select>
+<br><br><br>
+
+
+  <div class="suggestion">
+    <a href="https://bit.ly/2NhHZwe">Best products</a>
+    <br>
+    <a href="https://bit.ly/37O2ytt">New products</a>
+  </div>
+
+<script>
+	var pictureList = [
+    "plane.png",
+    "car.png", ];
+let dropdown = document.querySelector('#picDD');
+dropdown.addEventListener('change', val => {
+	if(pictureList.length < dropdown.value - 1) { return; }
+	document.querySelector('#vehicle-img').src = pictureList[dropdown.value - 1];
+});
+</script>
+</body>
+</html>
