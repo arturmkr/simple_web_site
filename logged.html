@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body onload="myFunction()">
+<div id="username_greeting"></div>
+<script>
+    function myFunction() {
+        const params = new URLSearchParams(window.location.search);
+        const username = params.get("user_login");
+        const password = params.get("user_password");
+        if (username === "admin" && password === "qwerty"){
+            document.getElementById("username_greeting").innerHTML = "Hello Franky";
+        } else {
+            document.getElementById("username_greeting").innerHTML = "Wrong credentials";
+        }
+    }
+</script>
+</body>
+</html>
