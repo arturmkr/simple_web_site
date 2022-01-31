@@ -1,52 +1,8 @@
 <!DOCTYPE html>
 <html>
-<style>
-.box {
-  float: left;
-  background-color: grey;
-  color: #ffffff;
-  width: 100px;
-  line-height: 100px;
-  text-align: center;
-  margin: 2px;
-}
-
-.footer {
-  float: left;
-  background-color: grey;
-  color: #ffffff;
-  width: 200px;
-  text-align: center;
-  margin: 2px;
-}
-
-.show {
-  display: block;
-}
-
-.box {
-  margin-top: 20px;
-  overflow: hidden;
-}
-
-/* Style the buttons */
-.btn {
-  border: none;
-  outline: none;
-  padding: 12px 16px;
-  background-color: #f1f1f1;
-  cursor: pointer;
-}
-
-.btn:hover {
-  background-color: #ddd;
-}
-
-.btn.active {
-  background-color: #666;
-  color: white;
-}
-</style>
+<head>
+  <link rel="stylesheet" href="style.css">
+</head>
 <body>
 <div id="myBtnContainer">
   <a class="btn" href="products.html">Products</a>
@@ -78,8 +34,15 @@
   <label for="javascript">JavaScript</label><br><br>
   <input type="submit" value="Submit">
 </form>
-
-
+<br><br>
+<form action="/logged.html">
+  <label for="user_login">Login:</label><br>
+  <input type="text" id="user_login" name="user_login" value="admin"><br>
+  <label for="user_password">Password:</label><br>
+  <input type="text" id="user_password" name="user_password" value="qwerty"><br><br>
+  <input type="submit" value="Sign In">
+</form>
+<br><br>
 <div class="footer">
   <div>
     <img src="ios.png">
