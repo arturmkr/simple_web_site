@@ -18,10 +18,16 @@
 
 
 <button type="button" onclick="loadXMLDoc()">Get my CD collection</button>
+<button type="button" onclick="getJoke()">Get a joke</button>
 <div id="demo_weather">PENDING INFO ABOUT WEATHER...</div>
 <br><br>
 <table id="demo"></table>
-
+<br><br>
+<div id="joke">
+  Here is a joke:
+  <div id="joke_content">What do you call two bananas on the floor? Slippers.</div>
+</div>
+<br><br><br>
 <div class="footer">
   <div>
     <img src="ios.png">
@@ -71,6 +77,27 @@
     }
     document.getElementById("demo").innerHTML = table;
   }
+  async function getJoke(){
+    let loader = "<div class='loader' style='width: 50px; height: 50px'></div>"
+    document.getElementById("joke_content").innerHTML = loader
+    await sleep(5000);
+    document.getElementById("joke_content").innerHTML = getRandomJokeContent();
+  }
+
+  function getRandomJokeContent() {
+    let random_digit = Math.floor(Math.random() * 3);
+    let joke_content = ""
+
+    if (random_digit === 0){
+      joke_content = "How does the ocean say hi? It waves!"
+    } else if (random_digit === 1){
+      joke_content = "Why was 6 afraid of 7? Because 7,8,9."
+    } else {
+      joke_content = "What kind of math do birds love? Owl-gebra!"
+    }
+    return joke_content
+  }
+
 </script>
 </body>
 </html>
