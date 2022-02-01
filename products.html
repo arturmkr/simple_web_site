@@ -22,8 +22,32 @@ function filterSelection(match) {
 	});
 	document.querySelector('.selectedValue').innerHTML = count;
 }
+
+function setRandomTV(){
+  let random_digit = Math.floor(Math.random() * 8);
+  let tvTitle = "";
+  if (random_digit === 0){
+    tvTitle = "LG 1"
+  } else if (random_digit === 1){
+    tvTitle = "LG 2"
+  }else if (random_digit === 2){
+    tvTitle = "LG 3"
+  }else if (random_digit === 3){
+    tvTitle = "LG 4"
+  }else if (random_digit === 4){
+    tvTitle = "LG 5"
+  }else if (random_digit === 6){
+    tvTitle = "LG 6"
+  }else if (random_digit === 7){
+    tvTitle = "LG 7"
+  } else {
+    tvTitle = "LG 8"
+  }
+  document.querySelector('.selectedTV').innerHTML = tvTitle;
+}
+
 </script>
-<body>
+<body onload="setRandomTV()">
 <div id="myBtnContainer">
   <a class="btn active" href="products.html">Products</a>
   <a class="btn" href="about.html">About</a>
@@ -40,6 +64,8 @@ function filterSelection(match) {
   <button onclick="filterSelection('none')">Reset selection</button>
   <button onclick="filterSelection('uhd')">Select UHD</button>
   <span class="selectedLabel">Selected: </span><span class="selectedValue">0</span>
+  <br>
+  <span>Best TV Today: </span><span class="selectedTV"></span>
 </div>
 
 <div class="box">
@@ -47,7 +73,7 @@ function filterSelection(match) {
   	<img src="tv.jpg" height="50px" width="50px" />
   </div>	
   <div class="boxCheckbox">
-    <input type="checkbox"></input>  
+    <input type="checkbox"></input>
   </div>
   <div class="boxLabel">
     LG 1  

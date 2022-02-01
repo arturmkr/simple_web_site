@@ -7,8 +7,13 @@
         const params = new URLSearchParams(window.location.search);
         const username = params.get("user_login");
         const password = params.get("user_password");
-        if (username === "admin" && password === "qwerty"){
+        const account = params.get("account_id");
+
+        if (username === "admin" && password === "qwerty") {
             document.getElementById("username_greeting").innerHTML = "Hello Franky";
+            if (account !== null) {
+                document.getElementById("username_greeting").innerHTML += "<br /> You are in the account: " + account;
+            }
         } else {
             document.getElementById("username_greeting").innerHTML = "Wrong credentials";
         }
