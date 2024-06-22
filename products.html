@@ -12,7 +12,7 @@ function filterSelection(match) {
 			item.querySelector('input[type=checkbox]').checked = false;
 			return;
 		}
-		
+
 		if (name.toUpperCase().indexOf(match.toUpperCase()) >= 0) {
 			item.querySelector('input[type=checkbox]').checked = true;
 			count++;
@@ -23,31 +23,46 @@ function filterSelection(match) {
 	document.querySelector('.selectedValue').innerHTML = count;
 }
 
-function setRandomTV(){
-  let random_digit = Math.floor(Math.random() * 8);
-  let tvTitle = "";
-  if (random_digit === 0){
-    tvTitle = "LG 1"
-  } else if (random_digit === 1){
-    tvTitle = "LG 2"
-  }else if (random_digit === 2){
-    tvTitle = "LG 3"
-  }else if (random_digit === 3){
-    tvTitle = "LG 4"
-  }else if (random_digit === 4){
-    tvTitle = "LG 5"
-  }else if (random_digit === 6){
-    tvTitle = "LG 6"
-  }else if (random_digit === 7){
-    tvTitle = "LG 7"
-  } else {
-    tvTitle = "LG 8"
-  }
+function setRandomTV(tvTitles) {
+  let randomIndex = Math.floor(Math.random() * tvTitles.length);
+  let tvTitle = tvTitles[randomIndex];
   document.querySelector('.selectedTV').innerHTML = tvTitle;
 }
 
+function generateTVs() {
+  const container = document.querySelector('.tv-container');
+  const numberOfTVs = Math.floor(Math.random() * 8) + 3;
+  const uhdIndex = Math.floor(Math.random() * numberOfTVs);
+  const tvTitles = [];
+
+  for (let i = 1; i <= numberOfTVs; i++) {
+    const isUHD = i === uhdIndex || Math.random() > 0.7;
+    const tvTitle = `LG ${i}` + (isUHD ? ' UHD' : '');
+    tvTitles.push(tvTitle);
+
+    const tvBox = document.createElement('div');
+    tvBox.className = 'box';
+    tvBox.innerHTML = `
+      <div class="boxImage">
+        <img src="tv.jpg" height="50px" width="50px" />
+      </div>
+      <div class="boxCheckbox">
+        <input type="checkbox"></input>
+      </div>
+      <div class="boxLabel">
+        ${tvTitle}
+      </div>
+    `;
+    container.appendChild(tvBox);
+  }
+  setRandomTV(tvTitles);
+}
+
+document.addEventListener('DOMContentLoaded', (event) => {
+  generateTVs();
+});
 </script>
-<body onload="setRandomTV()">
+<body>
 <div id="myBtnContainer">
   <a class="btn active" href="products.html">Products</a>
   <a class="btn" href="about.html">About</a>
@@ -59,7 +74,6 @@ function setRandomTV(){
 </div>
 <br><br>
 
-
 <div>
   <button onclick="filterSelection('none')">Reset selection</button>
   <button onclick="filterSelection('uhd')">Select UHD</button>
@@ -68,93 +82,8 @@ function setRandomTV(){
   <span>Best TV Today: </span><span class="selectedTV"></span>
 </div>
 
-<div class="box">
-  <div class="boxImage">
-  	<img src="tv.jpg" height="50px" width="50px" />
-  </div>	
-  <div class="boxCheckbox">
-    <input type="checkbox"></input>
-  </div>
-  <div class="boxLabel">
-    LG 1  
-  </div>
-</div>
-<div class="box">
-	  <div class="boxImage">
-  	<img src="tv.jpg" height="50px" width="50px" />
-  </div>	
-  <div class="boxCheckbox">
-    <input type="checkbox"></input>  
-  </div>
-  <div class="boxLabel">
-    LG 2  
-  </div>
-</div>
-<div class="box">
-	  <div class="boxImage">
-  	<img src="tv.jpg" height="50px" width="50px" />
-  </div>	
-  <div class="boxCheckbox">
-    <input type="checkbox"></input>  
-  </div>
-  <div class="boxLabel">
-    LG 3 UHD  
-  </div>
-</div>
-<div class="box">
-	  <div class="boxImage">
-  	<img src="tv.jpg" height="50px" width="50px" />
-  </div>	
-  <div class="boxCheckbox">
-    <input type="checkbox"></input>  
-  </div>
-  <div class="boxLabel">
-    LG 4  
-  </div>
-</div>
-<div class="box">
-	  <div class="boxImage">
-  	<img src="tv.jpg" height="50px" width="50px" />
-  </div>	
-  <div class="boxCheckbox">
-    <input type="checkbox"></input>  
-  </div>
-  <div class="boxLabel">
-    LG 5 UHD  
-  </div>
-</div>
-<div class="box">
-	  <div class="boxImage">
-  	<img src="tv.jpg" height="50px" width="50px" />
-  </div>	
-  <div class="boxCheckbox">
-    <input type="checkbox"></input>  
-  </div>
-  <div class="boxLabel">
-    LG 6  
-  </div>
-</div>
-<div class="box">
-	  <div class="boxImage">
-  	<img src="tv.jpg" height="50px" width="50px" />
-  </div>	
-  <div class="boxCheckbox">
-    <input type="checkbox"></input>  
-  </div>
-  <div class="boxLabel">
-    LG 7  
-  </div>
-</div>
-<div class="box">
-	  <div class="boxImage">
-  	<img src="tv.jpg" height="50px" width="50px" />
-  </div>	
-  <div class="boxCheckbox">
-    <input type="checkbox"></input>  
-  </div>
-  <div class="boxLabel">
-    LG 8  
-  </div>
+<div class="tv-container">
+  <!-- TVs will be dynamically generated here -->
 </div>
 
 <br><br><br><br>
@@ -174,16 +103,11 @@ function setRandomTV(){
   </div>
 </div>
 
-  <div class="suggestion">
-    <a href="https://bit.ly/2NhHZwe">Best products</a>
-    <br>
-    <a href="https://bit.ly/37O2ytt">New products</a>
-  </div>
-  
-  
-
+<div class="suggestion">
+  <a href="https://bit.ly/2NhHZwe">Best products</a>
+  <br>
+  <a href="https://bit.ly/37O2ytt">New products</a>
 </div>
-<script>
-</script>
+
 </body>
 </html>
