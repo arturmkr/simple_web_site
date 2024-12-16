@@ -19,13 +19,13 @@
 
 <button type="button" onclick="loadXMLDoc()">Get my CD collection</button>
 <button type="button" onclick="getJoke()">Get a joke</button>
-<div id="demo_weather">NO INFO ABOUT WEATHER...</div>
+<div id="demo_weather">NO INFO ABOUT SYDNEY...</div>
 <br><br>
 <table id="demo"></table>
 <br><br>
 <div id="joke">
   Here is a joke:
-  <div id="joke_content">What do you call two bananas on the floor? Slippers.</div>
+  <div id="joke_content">Joke. What do you call two bananas on the floor? Slippers.</div>
 </div>
 <br><br><br>
 <div class="footer">
@@ -44,7 +44,7 @@
   async function loadDoc() {
     await sleep(8000);
     var xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "ajax_info.txt", false);
+    xhttp.open("GET", "../data/ajax_info.txt", false);
     xhttp.send();
     document.getElementById("demo_weather").innerHTML = xhttp.responseText;
   }
@@ -62,7 +62,7 @@
       const cd = xmlDoc.getElementsByTagName("CD");
       myFunction(cd)
     }
-    xhttp.open("GET", "cd_catalog.xml");
+    xhttp.open("GET", "../data/cd_catalog.xml");
     xhttp.send();
   }
 
@@ -89,11 +89,11 @@
     let joke_content = ""
 
     if (random_digit === 0){
-      joke_content = "How does the ocean say hi? It waves!"
+      joke_content = "Joke. How does the ocean say hi? It waves!"
     } else if (random_digit === 1){
-      joke_content = "Why was 6 afraid of 7? Because 7,8,9."
+      joke_content = "Joke. Why was 6 afraid of 7? Because 7,8,9."
     } else {
-      joke_content = "What kind of math do birds love? Owl-gebra!"
+      joke_content = "Joke. What kind of math do birds love? Owl-gebra!"
     }
     return joke_content
   }
